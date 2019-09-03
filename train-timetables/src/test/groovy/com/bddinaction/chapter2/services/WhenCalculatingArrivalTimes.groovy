@@ -9,7 +9,7 @@ import spock.lang.Specification
 class WhenCalculatingArrivalTimes extends Specification {
 
     InMemoryTimetableService timetableService = Mock(InMemoryTimetableService)
-    ItineraryService itineraryService = new ItineraryService(timetableService);
+    ItineraryService itineraryService = new ItineraryServiceImpl(timetableService);
 
     def "should calculate the correct arrival time"() {
         given:

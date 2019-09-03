@@ -2,6 +2,7 @@ package com.bddinaction.chapter2.jbehave.steps;
 
 import com.bddinaction.chapter2.services.InMemoryTimetableService;
 import com.bddinaction.chapter2.services.ItineraryService;
+import com.bddinaction.chapter2.services.ItineraryServiceImpl;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
@@ -28,7 +29,7 @@ public class OptimalItinerarySteps {
 
     @When("I want to travel from $departure to $destination at $startTime")
     public void whenIWantToTravel(String departure, String destination, LocalTime startTime) {
-        ItineraryService itineraryService = new ItineraryService(timetableService);
+        ItineraryService itineraryService = new ItineraryServiceImpl(timetableService);
         proposedTrainTimes = itineraryService.findNextDepartures(departure, destination, startTime);
     }
 
